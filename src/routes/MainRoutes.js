@@ -4,6 +4,8 @@ import { lazy } from 'react';
 import MainLayout from 'layout/MainLayout';
 import Loadable from 'ui-component/Loadable';
 import { Navigate } from 'react-router';
+import Teachers from 'views/pages/users/teachers';
+import Students from 'views/pages/users/students';
 
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/Default')));
@@ -20,6 +22,14 @@ const MainRoutes = {
         {
           path: '',
           element: <DashboardDefault />
+        },
+        {
+          path: '/user-list/teachers',
+          element: <Teachers />
+        },
+        {
+          path: '/user-list/students',
+          element: <Students />
         }
       ]
     },
