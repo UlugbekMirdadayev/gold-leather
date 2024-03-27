@@ -6,12 +6,11 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import users from 'locale/users.json';
+// import users from 'locale/users.json';
 import CreateUserDrawer from './form';
 
 function createData(name, calories, fat, carbs, protein) {
-  const students = users.students;
-  console.log(students);
+  // const students = users.students;
   return { name, calories, fat, carbs, protein };
 }
 
