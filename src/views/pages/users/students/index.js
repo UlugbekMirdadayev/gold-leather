@@ -50,13 +50,10 @@ export default function Students() {
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  const handleClickOpen = () => {
-    setOpened(true);
-  };
-
-  const handleClose = () => {
-    setOpened(false);
-  };
+  const toggleDrawer = (boolen) => {
+    setOpened(boolen)
+  }
+  console.log(opened);
   const handleDelete = (item) => {
     setOpened(false)
     setRows(
@@ -107,13 +104,13 @@ export default function Students() {
                 <TableCell align="right">{row.time}</TableCell>
                 <TableCell align="right">{row.coin}</TableCell>
                 <TableCell align='right'> <React.Fragment>
-                  <Button variant="outlined" style={{ color: "red", border: "1px solid red" }} onClick={handleClickOpen}>
+                  <Button variant="outlined" style={{ color: "red", border: "1px solid red" }} onClick={() => toggleDrawer(true)}>
                     <Delete />
                   </Button>
                   <Dialog
                     fullScreen={fullScreen}
-                    opened={opened}
-                    onClose={handleClose}
+                    open={opened}
+                    onClose={() => toggleDrawer(false)}
                     aria-labelledby="responsive-title"
                     style={{ backgroundColor: "red" }}
                   >
@@ -126,7 +123,7 @@ export default function Students() {
                       </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                      <Button autoFocus onClick={handleClose}>
+                      <Button autoFocus onClick={() => toggleDrawer(false)}>
                         Cancel
                       </Button>
                       <Button onClick={() => handleDelete(row)} autoFocus>
